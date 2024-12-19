@@ -1,0 +1,11 @@
+class Solution {
+    public int arrangeCoins(int n) {
+        long layer = 0;
+        for (long jump = n; jump > 0; jump /= 2) {
+            while (((layer + jump) * (layer + jump) + (layer + jump)) / 2 <= n) {
+                layer += jump;
+            }
+        }
+        return (int) layer;
+    }
+}
